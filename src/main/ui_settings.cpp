@@ -13,20 +13,13 @@
 namespace {
   oot::ui::Settings g_live;
   std::atomic<bool> g_prerendered_room { false };
-  std::atomic<ultramodern::renderer::AspectRatio> g_orig_aspect_ratio { ultramodern::renderer::AspectRatio::Expand };
 
   void push_to_runtime() {
     ultramodern::renderer::GraphicsConfig graphics_config = ultramodern::renderer::get_graphics_config();
     const bool prerendered = g_prerendered_room.load(std::memory_order_relaxed);
-    if (prerendered) {
-      g_orig_aspect_ratio.store(graphics_config.ar_option, std::memory_order_relaxed);
-    }
-    const ultramodern::renderer::AspectRatio orig_ratio = g_orig_aspect_ratio.load(std::memory_order_relaxed);
+    const ultramodern::renderer::AspectRatio orig_ratio = (ultramodern::renderer::AspectRatio)std::get<uint32_t>(recompui::config::get_graphics_config().get_option_value(recompui::config::graphics::options::ar_option));
     graphics_config.ar_option = !prerendered ? orig_ratio : ultramodern::renderer::AspectRatio::Original;
     ultramodern::renderer::set_graphics_config(graphics_config);
-    auto tmp = recompui::config::get_graphics_config();
-    tmp.set_option_value(recompui::config::graphics::options::ar_option, (uint32_t)graphics_config.ar_option);
-    tmp.update_option_disabled(recompui::config::graphics::options::ar_option, prerendered);
   }
 }
 
