@@ -15,6 +15,17 @@
 #include "ultramodern/ultramodern.hpp"
 #include "ultramodern/config.hpp"
 #include "../lib/N64ModernRuntime/thirdparty/xxHash/xxh3.h"
+#include "ui_settings.h"
+#include "game/game_state.h"
+
+extern "C" void recomp_prerendered_room(uint8_t* rdram, recomp_context* ctx) {
+  (void)rdram;
+  oot::ui::set_prerendered_room(_arg<0, int32_t>(rdram, ctx) != 0, _arg<1, int32_t>(rdram, ctx));
+}
+
+extern "C" void recomp_note_dropped_frame(uint8_t* rdram, recomp_context* ctx) {
+  oot::game_state::note_dropped_frame(_arg<0, uint32_t>(rdram, ctx), _arg<1, int32_t>(rdram, ctx));
+}
 
 extern "C" void recomp_update_inputs(uint8_t* rdram, recomp_context* ctx) {
     recompinput::poll_inputs();

@@ -14,3 +14,6 @@ osCreateMesgQueue_recomp = 0x8F0000CC;
 osRecvMesg_recomp = 0x8F0000D0;
 osSetTimer_recomp = 0x8F0000D4;
 osSendMesg_recomp = 0x8F00011C;
+
+recomp_note_dropped_frame = 0x8F0000D8;
+recomp_prerendered_room = 0x8F0000BC;

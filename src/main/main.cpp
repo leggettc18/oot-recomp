@@ -564,7 +564,11 @@ int main(int argc, char** argv) {
     return EXIT_FAILURE;
   }
 
-  // TODO: SDL Controller stuff
+  // Source controller mappings file
+  std::u8string controller_db_path = (recompui::file::get_program_path() / "recompcontrollerdb.txt").u8string();
+  if (SDL_GameControllerAddMappingsFromFile(reinterpret_cast<const char *>(controller_db_path.c_str())) < 0) {
+    fprintf(stderr, "Failed to load controller mappings: %s\n", SDL_GetError());
+  }
 
   recompui::register_primary_font("InterVariable.ttf", "Inter Variable");
   recompui::register_extra_font("Suplexmentary Comic NC.ttf");

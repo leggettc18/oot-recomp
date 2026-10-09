@@ -140,10 +140,12 @@ set (SOURCES
   ${CMAKE_SOURCE_DIR}/src/main/register_patches.cpp
   ${CMAKE_SOURCE_DIR}/src/main/recomp_api.cpp
   ${CMAKE_SOURCE_DIR}/src/main/theme.cpp
+  ${CMAKE_SOURCE_DIR}/src/main/ui_settings.cpp
 
   ${CMAKE_SOURCE_DIR}/src/game/libultra_shims.cpp
   ${CMAKE_SOURCE_DIR}/src/game/rom_decompression.cpp
   ${CMAKE_SOURCE_DIR}/src/game/config.cpp
+  ${CMAKE_SOURCE_DIR}/src/game/game_state.cpp
 
   ${CMAKE_SOURCE_DIR}/rsp/aspMain.cpp
   ${CMAKE_SOURCE_DIR}/rsp/njpgdspMain.cpp
@@ -162,6 +164,7 @@ target_include_directories(OotRecompiled PRIVATE
   ${CMAKE_SOURCE_DIR}/lib/RecompFrontend/recompui/include
   ${CMAKE_SOURCE_DIR}/lib/RecompFrontend/recompui/src
   ${CMAKE_SOURCE_DIR}/lib/rt64/src/contrib/nativefiledialog-extended/src/include
+  ${CMAKE_SOURCE_DIR}/src
   ${CMAKE_CURRENT_BINARY_DIR}
 )
 
