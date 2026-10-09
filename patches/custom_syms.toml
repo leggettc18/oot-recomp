@@ -1,0 +1,7 @@
+[[section]]
+name = "..custom_syms"
+rom = 0x00000000
+vram = 0x80801000 #librecomp's patch_rdram_start, matching patches/patches.ld
+size = 0x0
+
+symbols = []

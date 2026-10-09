@@ -1,0 +1,19 @@
+[input]
+entrypoint = 0x80000400
+output_func_path = "RecompiledFuncs"
+relocatable_sections_path = "overlays.ntsc.1.0.txt"
+elf_path = "oot-ntsc-1.0.elf"
+bss_section_suffix = ".bss"
+use_mdebug = true
+
+[[input.function_sizes]]
+name = "KanjiTex_CodepointToOffset"
+size = 0x98
+
+[[input.function_sizes]]
+name = "LeoGetKAdr"
+size = 0xB8
+
+[[input.function_sizes]]
+name = "LeoGetAAdr"
+size = 0x70

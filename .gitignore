@@ -1,0 +1,51 @@
+# Input elf and rom files
+*.elf
+*.z64
+
+# Output C files
+RecompiledFuncs/
+RecompiledPatches/
+
+# Linux build output
+build/
+build-cmake/
+*.o
+
+# Flatpak build process
+repo/
+
+# Windows build output
+*.exe
+*.dll
+*.lib
+*.pdb
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Ww][Ii][Nn]32/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+out/
+
+# Runtime files
+imgui.ini
+rt64.log
+
+node_modules/
+
+# Recompiler Linux binary
+N64Recomp
+RSPRecomp
+.DS_Store
+
+gamecontrollerdb.txt

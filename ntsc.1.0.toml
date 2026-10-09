@@ -1,0 +1,17 @@
+[input]
+entrypoint = 0x80000400
+output_func_path = "RecompiledFuncs"
+relocatable_sections_path = "overlays.ntsc.1.0.txt"
+symbols_file_path = "syms/oot.ntsc.1.0.syms.toml"
+rom_file_path = "oot.ntsc.1.0.rom_uncompressed.z64"
+bss_section_suffix = ".bss"
+
+[patches]
+stubs = [
+  "RcpUtils_Reset",
+  "RcpUtils_PrintRegisterStatus",
+  "func_801C7268",
+  "CIC6105_SaveBootMagicValues",
+  "osDriveRomInit",
+  "CIC6105_RunBootTask"
+]
