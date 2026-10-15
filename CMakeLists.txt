@@ -165,6 +165,7 @@ target_include_directories(OotRecompiled PRIVATE
   ${CMAKE_SOURCE_DIR}/lib/RecompFrontend/recompui/src
   ${CMAKE_SOURCE_DIR}/lib/rt64/src/contrib/nativefiledialog-extended/src/include
   ${CMAKE_SOURCE_DIR}/src
+  ${CMAKE_SOURCE_DIR}/lib/SlotMap
   ${CMAKE_CURRENT_BINARY_DIR}
 )
 
