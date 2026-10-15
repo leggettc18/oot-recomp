@@ -21,4 +21,6 @@
 DECLARE_FUNC(void, recomp_puts, const char* str, u32 size);
 DECLARE_FUNC(void, recomp_exit, void);
 
+int recomp_printf(const char* fmt, ...);
+
 #endif // PATCHES_H
