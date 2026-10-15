@@ -178,15 +178,16 @@ bool should_interpolate_perspective(Vec3f* eye, Vec3f* at) {
 }
 
 RECOMP_PATCH s32 View_Apply(View* view, s32 mask) {
+    s32 ret;
     mask = (view->flags & mask) | (mask >> 4);
 
     // @recomp Determine if the camera should be interpolated this frame.
     bool interpolate_camera = false;
 
     if (mask & VIEW_PROJECTION_ORTHO) {
-        View_ApplyOrtho(view);
+        ret = View_ApplyOrtho(view);
     } else {
-        View_ApplyPerspective(view);
+        ret = View_ApplyPerspective(view);
 
         // @recomp Determine if interpolation should occur based on the new eye and at positions.
         if (!camera_ignore_tracking) {
@@ -241,6 +242,8 @@ RECOMP_PATCH s32 View_Apply(View* view, s32 mask) {
     camera_skip_interpolation_forced = false;
 
     CLOSE_DISPS(gfxCtx, "../z_view.c", 0);
+
+    return ret;
 }
 
 typedef s32 (*CameraUpdateFunc)(Camera*);
